@@ -1,0 +1,30 @@
+
+create table client (
+    NumCli int PRIMARY KEY,
+    CINCli varchar(7),
+    NomCli varchar(30),
+    AdreCli varchar(50),
+	TelCli varchar(15)
+    )
+create table Compte (
+    NumCpt int PRIMARY KEY,
+    SoldeCpt float,
+    TypeCpt varchar(2),
+    NumCli int,
+    foreign  key (NumCli) references client (NumCli)
+    );
+
+
+create table Operation (
+    NumOp int PRIMARY KEY,
+    TypeOp varchar(25) ,
+    MntOp float,
+    NumCpt int,
+    DateOp date,
+    foreign  key (NumCpt) references compte (NumCpt)
+    );
+
+insert into client values(10,'J1111','Omar','agadir','011111'),(20,'JB22222','amine','tanger','02222'),(30,'W33333','karim','rabat','03333')
+
+insert into compte values(100,80000,'CN',10),(200,22222,'CN',20),(300,33333,'CN',30),
+(400,80000,'CC',10),(500,48000,'CC',20),(600,30000,'CC',30)
